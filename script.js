@@ -2,6 +2,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//middleware
+app.use(function(res,req,next){
+    console.log("this is middleware")
+    next()
+})
 app.get('/', (req, res) => {
   res.send('Hello World! hii bye hlwwwww')
 })
