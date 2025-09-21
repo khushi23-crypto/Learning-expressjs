@@ -13,6 +13,9 @@ app.get('/', (req, res) => {
 app.get('/profile', (req, res) => {
   res.send('This is my profile')
 })
+app.get('/profile/:username', (req, res) => {
+  res.send(`Hello from all ${req.params.username}`)
+})
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
