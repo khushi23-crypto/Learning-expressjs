@@ -8,7 +8,7 @@ const port = 3000
     next()
 }) */
 app.set("view engine","ejs");
-
+app.use(express.static('./public'))
 
 app.get('/', function (req, res) {
   let students="Kajal And Shubham";

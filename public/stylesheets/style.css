@@ -1,0 +1,191 @@
+:root {
+      --primary: #5D4CFF;
+      --secondary: #7A6BFF;
+      --light: #F8F9FA;
+      --dark: #212529;
+      --bg: white;
+      --card-bg: white;
+      --text: #212529;
+      --nav-bg: white;
+      --shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #e9ecef;
+      --nav-bg: #1e1e1e;
+      --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      transition: background-color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      padding: 1rem 0;
+      background-color: var(--nav-bg);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 8rem 0 6rem;
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      background-color: var(--card-bg);
+      color: var(--text);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+.feature-card h3,
+.feature-card p {
+  color: inherit !important;
+}
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-left: 4px solid var(--primary);
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #4a3de0;
+      border-color: #4a3de0;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background-color: #121212;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+.footer a:hover {
+  color: var(--primary) !important;
+}
+    .social-link {
+      color: white;
+      font-size: 1.3rem;
+      margin-right: 1rem;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover {
+      color: var(--primary);
+    }
+
+    .logo-footer {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-footer span {
+      color: var(--primary);
+    }
+
+    /* Form styles */
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(93, 76, 255, 0.25);
+    }
+
+    .form-label {
+      font-weight: 600;
+    }
+
+    .success-message {
+      color: #28a745;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
