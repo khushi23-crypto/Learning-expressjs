@@ -3,17 +3,18 @@ const app = express()
 const port = 3000
 
 //middleware
-app.use(function(res,req,next){
+/* app.use(function(res,req,next){
     console.log("this is middleware")
     next()
-})
+}) */
 app.set("view engine","ejs");
 
 
-app.get('/', (req, res) => {
-  res.render("index")
-})
-app.get('/contact', (req, res) => {
+app.get('/', function (req, res) {
+  let students="Kajal And Shubham";
+  res.render("index",{name:students});
+});
+app.get('/contact', function(req, res) {
   res.render("contact")
 })
 //author/books/issues/:username
