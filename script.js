@@ -13,13 +13,13 @@ app.set("view engine","ejs");
 app.get('/', (req, res) => {
   res.render("index")
 })
-app.get('/profile', (req, res) => {
-  res.send('This is my profile')
+app.get('/contact', (req, res) => {
+  res.render("contact")
 })
 //author/books/issues/:username
-app.get('/profile/:username', (req, res) => {
+/* app.get('/profile/:username', (req, res) => {
   res.send(`Hello from all ${req.params.username}`)
-})
+}) */
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

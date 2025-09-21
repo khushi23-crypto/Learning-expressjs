@@ -6,6 +6,450 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SocialDash — The Ultimate Social Media Dashboard</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <style>
+    :root {
+      --primary: #5D4CFF;
+      --secondary: #7A6BFF;
+      --light: #F8F9FA;
+      --dark: #212529;
+      --bg: white;
+      --card-bg: white;
+      --text: #212529;
+      --nav-bg: white;
+      --shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #e9ecef;
+      --nav-bg: #1e1e1e;
+      --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      transition: background-color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      padding: 1rem 0;
+      background-color: var(--nav-bg);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-brand span {
+      color: var(--primary);
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    .hero-bg {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 8rem 0 6rem;
+    }
+
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      background-color: var(--card-bg);
+      color: var(--text);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+.feature-card h3,
+.feature-card p {
+  color: inherit !important;
+}
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-left: 4px solid var(--primary);
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #4a3de0;
+      border-color: #4a3de0;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background-color: #121212;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+.footer a:hover {
+  color: var(--primary) !important;
+}
+    .social-link {
+      color: white;
+      font-size: 1.3rem;
+      margin-right: 1rem;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover {
+      color: var(--primary);
+    }
+
+    .logo-footer {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-footer span {
+      color: var(--primary);
+    }
+
+    /* Form styles */
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(93, 76, 255, 0.25);
+    }
+
+    .form-label {
+      font-weight: 600;
+    }
+
+    .success-message {
+      color: #28a745;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#"><span>Social Dashboard</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#stats">Stats</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item d-flex align-items-center ms-3">
+            <label class="toggle-switch">
+              <input type="checkbox" id="themeToggle" />
+              <span class="toggle-slider"></span>
+            </label>
+          </li>
+          <li class="nav-item"><a class="btn btn-outline-primary ms-3" href="#signup">Sign Up</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Grow Your Social Presence <br>With One Powerful Dashboard</h1>
+      <p class="lead mb-5" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+        Track, analyze, and optimize your social media across Instagram, Twitter, LinkedIn, and TikTok — all in one place.
+      </p>
+      <a href="#signup" class="btn btn-primary btn-lg px-5 me-3">Get Started Free</a>
+      <a href="#demo" class="btn btn-outline-light btn-lg px-5">Watch Demo</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Powerful Features</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <i class="fas fa-chart-line feature-icon"></i>
+            <h3>Real-Time Analytics</h3>
+            <p class="text-muted">Monitor engagement, reach, and conversions as they happen with live dashboards.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <i class="fas fa-calendar-alt feature-icon"></i>
+            <h3>Smart Scheduling</h3>
+            <p class="text-muted">Plan and auto-post content across platforms at optimal times for maximum impact.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <i class="fas fa-users feature-icon"></i>
+            <h3>Team Collaboration</h3>
+            <p class="text-muted">Invite team members, assign tasks, and approve posts with role-based access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section id="stats" class="py-5 bg-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3 col-6">
+          <div class="stat-number">50K+</div>
+          <p class="text-muted">Active Users</p>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-number">2M+</div>
+          <p class="text-muted">Posts Scheduled</p>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-number">98%</div>
+          <p class="text-muted">User Satisfaction</p>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-number">24/7</div>
+          <p class="text-muted">Support Available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">What Our Users Say</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0Mzk4NjU1Mw&ixlib=rb-1.2.1&q=80&w=200" alt="User" class="rounded-circle me-3">
+              <div>
+                <h6>Alex Rivera</h6>
+                <small class="text-muted">Social Manager, TechCo</small>
+              </div>
+            </div>
+            <p>"SocialDash cut my weekly reporting time by 80%. I now have more time to create great content!"</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0Mzk4NjU1Mw&ixlib=rb-1.2.1&q=80&w=200" alt="User" class="rounded-circle me-3">
+              <div>
+                <h6>Jamila Chen</h6>
+                <small class="text-muted">Marketing Director</small>
+              </div>
+            </div>
+            <p>"The scheduling tool is flawless. My engagement has increased by 140% since we started using it."</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0Mzk4NjU1Mw&ixlib=rb-1.2.1&q=80&w=200" alt="User" class="rounded-circle me-3">
+              <div>
+                <h6>Ryan Kim</h6>
+                <small class="text-muted">Influencer</small>
+              </div>
+            </div>
+            <p>"I manage 5 accounts. SocialDash keeps them all organized, consistent, and growing — no stress!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer with Form -->
+  <section id="signup" class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Ready to Transform Your Social Media?</h2>
+      <p class="lead mb-4" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+        Join 50,000+ marketers and creators who are growing smarter with SocialDash.
+      </p>
+      <form id="newsletterForm" class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-4" novalidate>
+        <input type="email" class="form-control" placeholder="Enter your email" required style="max-width: 300px;">
+        <button type="submit" class="btn btn-primary btn-lg px-5">Start Free Trial</button>
+      </form>
+      <div class="success-message" id="successMessage">✅ Thanks for subscribing!</div>
+      <p class="mt-3 small">No credit card required. 14-day free trial.</p>
+    </div>
+  </section>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="logo-footer">Social <span>Dashboard</span></div>
+        <p class="text-muted mt-3" style="color: white !important;">
+          The all-in-one platform to manage, analyze, and grow your social presence.
+        </p>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h6 class="text-white">Product</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Features</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Pricing</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h6 class="text-white">Company</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">About</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6 class="text-white">Connect</h6>
+        <div class="d-flex mb-3">
+          <a href="#" class="social-link text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link text-white"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link text-white"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link text-white"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="text-white mb-0">© 2024 SocialDash. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener('change', () => {
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Newsletter Form Submission
+    const form = document.getElementById('newsletterForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      
+      // Simulate API call
+      setTimeout(() => {
+        successMessage.style.display = 'block';
+        form.reset();
+        
+        // Hide message after 3 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+      }, 500);
+    });
+  </script>
+</body>
+</html>  
 </body>
 </html>

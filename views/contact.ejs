@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid black;
+    }
+
+    h1,
+    h2 {
+      padding: 20px;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1em;
+      padding: 10px 20px;
+      background-color: wheat;
+      width: 50%;
+      margin: auto;
+      border-radius: 10px;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .main p {
+      text-align: justify;
+      padding: 10px 0;
+    }
+
+    .main span {
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 20px 0;
+    }
+
+    .dots {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+      margin: 1em;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .box {
+        width: 60%;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      .box {
+        flex-direction: column;
+        width: 80%;
+        padding-top: 15px;
+      }
+    }
+
+    /* team section styling */
+    .team {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 10px;
+      flex-wrap: wrap;
+      margin: 20px 10px;
+    }
+    .card {
+      padding: 10px;
+    }
+
+    .card h4,
+    .card p {
+      width: 200px;
+      margin: 10px auto;
+    }
+</style>
+
+<body>
+     <div class="container">
+  <h1>Day 2 - Testimonials</h1>
+  <hr>
+  <div class="content">
+    <h2>Here is What Our Clients Saying About Us</h2>
+    <div class="box">
+      <div><img src="https://user-images.githubusercontent.com/83168881/167544540-8d4c362d-754a-4c44-9b03-1c7d6d20e3a0.jpg"></div>
+      <div class="main">
+        <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.</p>
+        <span class="date">May 22, 2020</span>
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div><br>
+    <hr>
+    <h2>Our Team</h2>
+    <p>Our Team Consists Only of the Best Talents</p>
+    <div class="team">
+      <div class="card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d">
+        </div>
+        <h4>Jhon Doe</h4>
+        <span>CEO</span>
+        <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
+      </div>
+      <div class="card">
+        <div>
+          <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61">
+        </div>
+        <h4>Jhon Smith</h4>
+        <span>Manager</span>
+        <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
+      </div>
+      <div class="card">
+        <div>
+          <img src="https://user-images.githubusercontent.com/83168881/167544540-8d4c362d-754a-4c44-9b03-1c7d6d20e3a0.jpg">
+        </div>
+        <h4>Riya Bhatta</h4>
+        <span>CTO</span>
+        <p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
